@@ -9,7 +9,6 @@ import Journal from './pages/Journal';
 import MoodTracker from './pages/MoodTracker';
 import Chat from './pages/Chat';
 import Dashboard from './pages/Dashboard';
-import Profile from './pages/Profile';
 
 const AppContent: React.FC = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -43,7 +42,6 @@ const AppContent: React.FC = () => {
         <Route path="mood" element={<MoodTracker />} />
         <Route path="chat" element={<Chat />} />
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="profile" element={<Profile />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
