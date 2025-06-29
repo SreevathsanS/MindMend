@@ -15,9 +15,27 @@ const Layout: React.FC = () => {
         </div>
         
         <div className="relative z-10">
-          <main className="pb-20">
+          <main className="pb-32">
             <Outlet />
           </main>
+          
+          {/* Built with Bolt.new Footer */}
+          <div className="fixed bottom-20 left-0 right-0 z-40 px-6">
+            <div className="max-w-sm mx-auto">
+              <div className="text-center">
+                <a
+                  href="https://bolt.new"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-3 py-1.5 bg-white/60 backdrop-blur-sm rounded-full text-xs text-calm-600 hover:text-calm-800 hover:bg-white/80 transition-all duration-300 shadow-soft border border-white/50"
+                >
+                  <span className="mr-1">⚡</span>
+                  Built with Bolt.new
+                </a>
+              </div>
+            </div>
+          </div>
+          
           <Navigation />
         </div>
       </div>
