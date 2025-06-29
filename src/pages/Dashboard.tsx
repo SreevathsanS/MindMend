@@ -153,7 +153,7 @@ const Dashboard: React.FC = () => {
           </div>
           
           <div className="h-40 mb-4 flex justify-start">
-            <div className="w-full flex justify-start">
+            <div className="w-full flex items-left justify-start ">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={moodTrendData} margin={{ left: 0, right: 0, top: 5, bottom: 5 }}>
                   <XAxis 
