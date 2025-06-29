@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart3, TrendingUp, Heart, Brain, Lightbulb, User, Settings, Bell, Shield, HelpCircle, LogOut, Edit3, Camera, ChevronRight, X } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts';
 import { mockMoodEntries, mockJournalEntries, wellnessTips, getBurnoutLabel } from '../data/mockData';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -57,13 +57,38 @@ const Dashboard: React.FC = () => {
       mood: entry.mood
     }));
 
-  // Mood distribution for pie chart
+  // Mood distribution for horizontal bar chart
   const moodDistribution = [
-    { name: 'Great', value: mockMoodEntries.filter(e => e.mood === 5).length, color: '#10b981' },
-    { name: 'Good', value: mockMoodEntries.filter(e => e.mood === 4).length, color: '#84cc16' },
-    { name: 'Okay', value: mockMoodEntries.filter(e => e.mood === 3).length, color: '#eab308' },
-    { name: 'Sad', value: mockMoodEntries.filter(e => e.mood === 2).length, color: '#f97316' },
-    { name: 'Very Sad', value: mockMoodEntries.filter(e => e.mood === 1).length, color: '#ef4444' },
+    { 
+      name: 'Great', 
+      value: mockMoodEntries.filter(e => e.mood === 5).length, 
+      color: '#10b981',
+      emoji: '😄'
+    },
+    { 
+      name: 'Good', 
+      value: mockMoodEntries.filter(e => e.mood === 4).length, 
+      color: '#84cc16',
+      emoji: '😊'
+    },
+    { 
+      name: 'Okay', 
+      value: mockMoodEntries.filter(e => e.mood === 3).length, 
+      color: '#eab308',
+      emoji: '😐'
+    },
+    { 
+      name: 'Sad', 
+      value: mockMoodEntries.filter(e => e.mood === 2).length, 
+      color: '#f97316',
+      emoji: '😔'
+    },
+    { 
+      name: 'Very Sad', 
+      value: mockMoodEntries.filter(e => e.mood === 1).length, 
+      color: '#ef4444',
+      emoji: '😢'
+    },
   ].filter(item => item.value > 0);
 
   const todayTip = wellnessTips[Math.floor(Math.random() * wellnessTips.length)];
@@ -195,7 +220,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Mood Distribution */}
+        {/* Mood Distribution - Horizontal Bar Chart */}
         <div className="bg-gradient-to-br from-lavender-50 to-softblue-50 rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
           <div className="text-left">
             <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
@@ -204,33 +229,29 @@ const Dashboard: React.FC = () => {
             </h3>
           </div>
           
-          <div className="h-32 mb-4">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={moodDistribution}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={20}
-                  outerRadius={50}
-                  dataKey="value"
-                >
-                  {moodDistribution.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2">
+          <div className="space-y-3">
             {moodDistribution.map((item, index) => (
-              <div key={index} className="flex items-center justify-start text-xs">
-                <div 
-                  className="w-3 h-3 rounded-full mr-2 flex-shrink-0" 
-                  style={{ backgroundColor: item.color }}
-                ></div>
-                <span className="text-calm-700 text-left">{item.name} ({item.value})</span>
+              <div key={index} className="flex items-center justify-between">
+                <div className="flex items-center space-x-3 flex-1">
+                  <span className="text-lg">{item.emoji}</span>
+                  <span className="text-sm font-medium text-calm-800 min-w-0 flex-shrink-0">
+                    {item.name}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-3 flex-1">
+                  <div className="flex-1 bg-white/50 rounded-full h-2 relative overflow-hidden">
+                    <div 
+                      className="h-full rounded-full transition-all duration-1000 ease-out"
+                      style={{ 
+                        backgroundColor: item.color,
+                        width: `${(item.value / Math.max(...moodDistribution.map(d => d.value))) * 100}%`
+                      }}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-calm-700 min-w-0 flex-shrink-0">
+                    {item.value}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
