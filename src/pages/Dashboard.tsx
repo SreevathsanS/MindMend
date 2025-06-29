@@ -242,7 +242,7 @@ const Dashboard: React.FC = () => {
           <div className="space-y-3">
             {moodDistribution.map((item, index) => (
               <div key={index} className="flex items-center justify-between">
-                <div className="flex items-center space-x-3 flex-1">
+                <div className="flex items-left space-x-3 flex-1">
                   <span className="text-lg">{item.emoji}</span>
                   <span className="text-sm font-medium text-calm-800 min-w-0 flex-shrink-0">
                     {item.name}
