@@ -161,30 +161,26 @@ const Chat: React.FC = () => {
         </div>
       </div>
 
-      {/* Input - Perfectly Aligned Send Button */}
+      {/* Input - Button Perfectly Aligned with Chat Bar */}
       <div className="fixed bottom-24 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-offwhite-300/50 shadow-gentle">
-        <div className="px-6 py-5">
+        <div className="px-6 py-4">
           <div className="max-w-sm mx-auto">
-            <div className="flex items-end space-x-4">
-              <div className="flex-1 min-w-0">
-                <textarea
-                  value={inputMessage}
-                  onChange={(e) => setInputMessage(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Share what's on your mind..."
-                  className="w-full p-4 bg-offwhite-100/60 border border-offwhite-300/70 rounded-3xl resize-none focus:outline-none focus:ring-2 focus:ring-lavender-300 focus:border-transparent text-calm-800 placeholder-calm-400 max-h-24 text-sm leading-relaxed transition-all duration-300 focus:bg-white/80"
-                  rows={1}
-                />
-              </div>
-              <div className="flex-shrink-0 flex items-end">
-                <button
-                  onClick={handleSendMessage}
-                  disabled={!inputMessage.trim()}
-                  className="w-12 h-12 bg-gradient-to-r from-lavender-500 to-softblue-500 text-white rounded-full flex items-center justify-center shadow-gentle disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-soft hover:scale-105 active:scale-95 disabled:hover:scale-100 mb-0"
-                >
-                  <Send className="w-5 h-5" />
-                </button>
-              </div>
+            <div className="relative flex items-center">
+              <textarea
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Share what's on your mind..."
+                className="w-full pl-4 pr-16 py-4 bg-offwhite-100/60 border border-offwhite-300/70 rounded-3xl resize-none focus:outline-none focus:ring-2 focus:ring-lavender-300 focus:border-transparent text-calm-800 placeholder-calm-400 max-h-24 text-sm leading-relaxed transition-all duration-300 focus:bg-white/80"
+                rows={1}
+              />
+              <button
+                onClick={handleSendMessage}
+                disabled={!inputMessage.trim()}
+                className="absolute right-2 w-10 h-10 bg-gradient-to-r from-lavender-500 to-softblue-500 text-white rounded-full flex items-center justify-center shadow-gentle disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-soft hover:scale-105 active:scale-95 disabled:hover:scale-100"
+              >
+                <Send className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
