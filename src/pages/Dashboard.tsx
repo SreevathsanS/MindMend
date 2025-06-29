@@ -111,7 +111,7 @@ const Dashboard: React.FC = () => {
               <BarChart3 className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-semibold text-calm-800 mb-2">Insights Dashboard</h1>
-            <p className="text-calm-600 text-sm">Your wellness journey at a glance</p>
+            <p className="text-calm-600 text-sm leading-relaxed">Your wellness journey at a glance</p>
           </div>
           
           {/* Profile Button */}
@@ -160,11 +160,11 @@ const Dashboard: React.FC = () => {
           <div className="flex justify-between items-center text-center">
             <div>
               <div className="text-xl font-bold text-lavender-700">{averageMood.toFixed(1)}</div>
-              <div className="text-xs text-calm-600">Average Mood</div>
+              <div className="text-xs text-calm-600 leading-relaxed">Average Mood</div>
             </div>
             <div>
               <div className="text-xl font-bold text-softblue-700">{averageBurnout.toFixed(1)}</div>
-              <div className="text-xs text-calm-600">Burnout Level</div>
+              <div className="text-xs text-calm-600 leading-relaxed">Burnout Level</div>
             </div>
           </div>
         </div>
@@ -216,7 +216,7 @@ const Dashboard: React.FC = () => {
           </h3>
           
           <div className="bg-lavender-50 rounded-2xl p-4 mb-4">
-            <p className="text-calm-800 font-medium text-sm">{keyInsight}</p>
+            <p className="text-calm-800 font-medium text-sm leading-relaxed">{keyInsight}</p>
           </div>
 
           <div className="text-xs text-calm-600 leading-relaxed">
@@ -240,7 +240,7 @@ const Dashboard: React.FC = () => {
             {todayTip}
           </p>
           
-          <div className="text-xs text-lavender-100">
+          <div className="text-xs text-lavender-100 leading-relaxed">
             💡 Small steps lead to big changes in your mental wellness journey.
           </div>
         </div>
@@ -365,7 +365,7 @@ const Dashboard: React.FC = () => {
                             {key === 'journalPrompts' && 'Journal Writing Prompts'}
                             {key === 'weeklyInsights' && 'Weekly Insights'}
                           </div>
-                          <div className="text-xs text-calm-600">
+                          <div className="text-xs text-calm-600 leading-relaxed">
                             {key === 'dailyReminders' && 'Get gentle reminders to check in'}
                             {key === 'moodTracking' && 'Reminders to log your mood'}
                             {key === 'journalPrompts' && 'Inspiring writing prompts'}

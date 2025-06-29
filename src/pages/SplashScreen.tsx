@@ -36,7 +36,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
         <h1 className="text-4xl font-bold text-white mb-2 tracking-tight">
           MindMend
         </h1>
-        <p className="text-white/80 text-lg font-medium mb-8">
+        <p className="text-white/80 text-lg font-medium mb-8 leading-relaxed">
           Your Mental Wellness Companion
         </p>
 

@@ -71,7 +71,7 @@ const Auth: React.FC = () => {
           <h1 className="text-2xl font-semibold text-calm-800 mb-2">
             {isLogin ? 'Welcome Back' : 'Join MindMend'}
           </h1>
-          <p className="text-calm-600 text-sm">
+          <p className="text-calm-600 text-sm leading-relaxed">
             {isLogin ? 'Sign in to continue your wellness journey' : 'Start your mental wellness journey today'}
           </p>
         </div>
@@ -96,7 +96,7 @@ const Auth: React.FC = () => {
                     placeholder="Enter your full name"
                   />
                 </div>
-                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                {errors.name && <p className="text-red-500 text-xs mt-1 leading-relaxed">{errors.name}</p>}
               </div>
             )}
 
@@ -116,7 +116,7 @@ const Auth: React.FC = () => {
                   placeholder="Enter your email"
                 />
               </div>
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-xs mt-1 leading-relaxed">{errors.email}</p>}
             </div>
 
             <div>
@@ -142,11 +142,11 @@ const Auth: React.FC = () => {
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
-              {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
+              {errors.password && <p className="text-red-500 text-xs mt-1 leading-relaxed">{errors.password}</p>}
             </div>
 
             {errors.general && (
-              <p className="text-red-500 text-sm text-center">{errors.general}</p>
+              <p className="text-red-500 text-sm text-center leading-relaxed">{errors.general}</p>
             )}
 
             <button

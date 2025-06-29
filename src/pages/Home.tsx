@@ -59,7 +59,7 @@ const Home: React.FC = () => {
           <h1 className="text-2xl font-semibold text-calm-800 mb-2">
             {greeting}, {user?.name} 👋
           </h1>
-          <p className="text-calm-600 text-sm">How are you feeling today?</p>
+          <p className="text-calm-600 text-sm leading-relaxed">How are you feeling today?</p>
         </div>
 
         {/* Daily Quote */}
@@ -93,7 +93,7 @@ const Home: React.FC = () => {
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-semibold text-calm-800 text-sm mb-1">{title}</h3>
-                <p className="text-xs text-calm-600 leading-relaxed">{description}</p>
+                <p className="text-xs text-calm-600 leading-relaxed break-words">{description}</p>
               </div>
             </Link>
           ))}
@@ -108,7 +108,7 @@ const Home: React.FC = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-calm-800 text-sm">Current Wellness</h3>
-                <p className="text-xs text-calm-600">{getBurnoutLabel(averageBurnout)} stress level</p>
+                <p className="text-xs text-calm-600 leading-relaxed">{getBurnoutLabel(averageBurnout)} stress level</p>
               </div>
             </div>
             <div className="text-right">
