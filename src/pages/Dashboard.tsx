@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart3, TrendingUp, Heart, Brain, Lightbulb, User, Settings, Bell, Shield, HelpCircle, LogOut, Edit3, Camera, ChevronRight, X } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell } from 'recharts';
 import { mockMoodEntries, mockJournalEntries, wellnessTips, getBurnoutLabel } from '../data/mockData';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -146,6 +146,15 @@ const Dashboard: React.FC = () => {
     }
   ];
 
+  // Get bar colors based on mood value
+  const getBarColor = (mood: number) => {
+    if (mood >= 4.5) return '#10b981'; // Green for great mood
+    if (mood >= 3.5) return '#84cc16'; // Light green for good mood
+    if (mood >= 2.5) return '#eab308'; // Yellow for okay mood
+    if (mood >= 1.5) return '#f97316'; // Orange for sad mood
+    return '#ef4444'; // Red for very sad mood
+  };
+
   return (
     <div className="min-h-screen px-6 pt-16 pb-28">
       <div className="max-w-sm mx-auto animate-fade-in">
@@ -168,7 +177,7 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
 
-        {/* Burnout Trend Graph - Left Center Aligned Chart */}
+        {/* Mood Trend Bar Chart - Left Center Aligned Chart */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
           <div className="text-left">
             <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
@@ -178,32 +187,33 @@ const Dashboard: React.FC = () => {
           </div>
           
           <div className="h-40 mb-4 flex justify-start">
-            <div className="w-full flex items-left justify-start ">
+            <div className="w-full flex items-left justify-start">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={moodTrendData} margin={{ left: 0, right: 0, top: 5, bottom: 5 }}>
+                <BarChart data={moodTrendData} margin={{ left: 0, right: 0, top: 5, bottom: 5 }}>
                   <XAxis 
                     dataKey="date" 
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'start' }}
+                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'middle' }}
                     interval={0}
                   />
                   <YAxis 
-                    domain={[1, 5]}
+                    domain={[0, 5]}
                     axisLine={false}
                     tickLine={false}
                     tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'start' }}
                     orientation="left"
                   />
-                  <Line 
-                    type="monotone" 
+                  <Bar 
                     dataKey="mood" 
-                    stroke="#8b5cf6"
-                    strokeWidth={3}
-                    dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 4 }}
-                    activeDot={{ r: 6, fill: '#7c3aed' }}
-                  />
-                </LineChart>
+                    radius={[4, 4, 0, 0]}
+                    maxBarSize={30}
+                  >
+                    {moodTrendData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={getBarColor(entry.mood)} />
+                    ))}
+                  </Bar>
+                </BarChart>
               </ResponsiveContainer>
             </div>
           </div>
