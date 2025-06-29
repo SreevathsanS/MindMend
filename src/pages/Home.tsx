@@ -56,7 +56,7 @@ const Home: React.FC = () => {
       <div className="max-w-sm mx-auto animate-fade-in">
         {/* Greeting Section */}
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-semibold text-calm-800 mb-2">
+          <h1 className="text-2xl font-semibold text-calm-800 mb-2 leading-tight">
             {greeting}, {user?.name} 👋
           </h1>
           <p className="text-calm-600 text-sm leading-relaxed">How are you feeling today?</p>
@@ -79,7 +79,7 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Quick Actions */}
+        {/* Quick Actions - Improved Grid Layout */}
         <div className="grid grid-cols-2 gap-4 mb-8">
           {quickActions.map(({ to, icon: Icon, title, description, gradient, bgGradient }, index) => (
             <Link
@@ -88,12 +88,16 @@ const Home: React.FC = () => {
               className="group block animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`bg-gradient-to-br ${bgGradient} rounded-3xl p-6 shadow-soft border border-white/50 transition-all duration-300 group-hover:shadow-gentle group-hover:scale-105 group-active:scale-95 h-32`}>
-                <div className={`w-12 h-12 bg-gradient-to-br ${gradient} rounded-2xl flex items-center justify-center mb-3 shadow-calm`}>
-                  <Icon className="w-6 h-6 text-white" />
+              <div className={`bg-gradient-to-br ${bgGradient} rounded-3xl p-5 shadow-soft border border-white/50 transition-all duration-300 group-hover:shadow-gentle group-hover:scale-105 group-active:scale-95 h-36 flex flex-col justify-between`}>
+                <div className="flex flex-col items-start">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${gradient} rounded-2xl flex items-center justify-center mb-3 shadow-calm flex-shrink-0`}>
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1 flex flex-col justify-center">
+                    <h3 className="font-semibold text-calm-800 text-sm mb-1 leading-tight">{title}</h3>
+                    <p className="text-xs text-calm-600 leading-relaxed break-words">{description}</p>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-calm-800 text-sm mb-1">{title}</h3>
-                <p className="text-xs text-calm-600 leading-relaxed break-words">{description}</p>
               </div>
             </Link>
           ))}
@@ -103,17 +107,17 @@ const Home: React.FC = () => {
         <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-5 shadow-soft border border-white/50 animate-slide-up" style={{ animationDelay: '0.4s' }}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="text-2xl animate-pulse-gentle">
+              <div className="text-2xl animate-pulse-gentle flex-shrink-0">
                 {getBurnoutEmoji(averageBurnout)}
               </div>
-              <div>
-                <h3 className="font-semibold text-calm-800 text-sm">Current Wellness</h3>
+              <div className="flex-1">
+                <h3 className="font-semibold text-calm-800 text-sm leading-tight">Current Wellness</h3>
                 <p className="text-xs text-calm-600 leading-relaxed">{getBurnoutLabel(averageBurnout)} stress level</p>
               </div>
             </div>
-            <div className="text-right">
+            <div className="text-right flex-shrink-0">
               <div className="text-lg font-bold text-calm-700">{averageBurnout}/10</div>
-              <div className="text-xs text-calm-500">Burnout score</div>
+              <div className="text-xs text-calm-500 leading-tight">Burnout score</div>
             </div>
           </div>
         </div>
