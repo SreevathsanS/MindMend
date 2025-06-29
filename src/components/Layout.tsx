@@ -19,21 +19,17 @@ const Layout: React.FC = () => {
             <Outlet />
           </main>
           
-          {/* Built with Bolt.new Footer - More prominent positioning */}
-          <div className="fixed bottom-20 left-0 right-0 z-40 px-6 pointer-events-none">
-            <div className="max-w-sm mx-auto">
-              <div className="text-center">
-                <a
-                  href="https://bolt.new"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-md rounded-full text-xs font-medium text-calm-700 hover:text-calm-900 hover:bg-white/90 transition-all duration-300 shadow-soft border border-white/60 hover:shadow-gentle pointer-events-auto"
-                >
-                  <span className="mr-1.5 text-sm">⚡</span>
-                  Built with Bolt.new
-                </a>
-              </div>
-            </div>
+          {/* Built with Bolt.new Badge - Top Right Corner */}
+          <div className="fixed top-4 right-4 z-50">
+            <a
+              href="https://bolt.new"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-3 py-2 bg-white/90 backdrop-blur-md rounded-full text-xs font-semibold text-calm-700 hover:text-calm-900 hover:bg-white transition-all duration-300 shadow-gentle border border-white/60 hover:shadow-soft hover:scale-105 active:scale-95"
+            >
+              <span className="mr-1.5 text-sm">⚡</span>
+              Built with Bolt.new
+            </a>
           </div>
           
           <Navigation />
