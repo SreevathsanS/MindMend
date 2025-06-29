@@ -123,7 +123,7 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
 
-        {/* Burnout Trend Graph - Left Center Aligned Chart */}
+        {/* Burnout Trend Graph - Reduced Width for Perfect Left Alignment */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
           <div className="text-left">
             <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
@@ -132,8 +132,8 @@ const Dashboard: React.FC = () => {
             </h3>
           </div>
           
-          <div className="h-40 mb-4 flex justify-start">
-            <div className="w-full flex justify-start">
+          <div className="h-40 mb-4">
+            <div className="w-4/5">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={moodTrendData} margin={{ left: 0, right: 0, top: 5, bottom: 5 }}>
                   <XAxis 
