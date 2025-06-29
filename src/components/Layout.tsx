@@ -1,13 +1,8 @@
 import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Navigation from './Navigation';
 
 const Layout: React.FC = () => {
-  const location = useLocation();
-  
-  // Check if we're on dashboard page and should potentially hide nav
-  const isDashboard = location.pathname === '/dashboard';
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-lavender-50 via-offwhite-100 to-softblue-50">
       <div className="relative">
