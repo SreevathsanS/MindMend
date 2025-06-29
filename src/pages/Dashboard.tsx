@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart3, TrendingUp, Heart, Brain, Lightbulb, User, Settings, Bell, Shield, HelpCircle, LogOut, Edit3, Camera, ChevronRight, X } from 'lucide-react';
+import { BarChart3, TrendingUp, Heart, Brain, Lightbulb, User, Bell, Shield, HelpCircle, LogOut, Edit3, Camera, ChevronRight, X } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell } from 'recharts';
-import { mockMoodEntries, mockJournalEntries, wellnessTips, getBurnoutLabel } from '../data/mockData';
+import { mockMoodEntries, mockJournalEntries, wellnessTips } from '../data/mockData';
 import { useAuth } from '../contexts/AuthContext';
 
 const Dashboard: React.FC = () => {

@@ -1,4 +1,4 @@
-import { JournalEntry, MoodEntry, User } from '../types';
+import { JournalEntry, MoodEntry } from '../types';
 
 export const inspirationalQuotes = [
   "Every small step forward is progress worth celebrating.",
