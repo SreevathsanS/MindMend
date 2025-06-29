@@ -21,7 +21,7 @@ const Dashboard: React.FC = () => {
 
   // Hide/show navigation based on profile modal state
   useEffect(() => {
-    const navElement = document.querySelector('nav.fixed.bottom-0');
+    const navElement = document.querySelector('nav.fixed.bottom-0') as HTMLElement;
     if (navElement) {
       if (showProfile) {
         navElement.style.display = 'none';
@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
 
     // Cleanup function to ensure nav is visible when component unmounts
     return () => {
-      const navElement = document.querySelector('nav.fixed.bottom-0');
+      const navElement = document.querySelector('nav.fixed.bottom-0') as HTMLElement;
       if (navElement) {
         navElement.style.display = 'block';
       }

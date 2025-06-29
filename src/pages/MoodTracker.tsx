@@ -116,7 +116,7 @@ const MoodTracker: React.FC = () => {
           </h3>
           
           <div className="grid grid-cols-7 gap-2">
-            {last7Days.map((date, index) => (
+            {last7Days.map((date, _index) => (
               <div key={date} className="text-center">
                 <div className="text-xs text-calm-600 mb-2 font-medium">
                   {new Date(date).toLocaleDateString('en-US', { weekday: 'short' })}
