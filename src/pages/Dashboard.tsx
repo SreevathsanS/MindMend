@@ -123,7 +123,7 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
 
-        {/* Burnout Trend Graph - Shrunk and Left Aligned */}
+        {/* Burnout Trend Graph - Left Center Aligned Chart */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
           <div className="text-left">
             <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
@@ -132,32 +132,31 @@ const Dashboard: React.FC = () => {
             </h3>
           </div>
           
-          <div className="h-28 mb-4 flex justify-start">
-            <div className="w-3/4 flex justify-start">
+          <div className="h-40 mb-4 flex justify-start">
+            <div className="w-full flex justify-start">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={moodTrendData} margin={{ left: -10, right: 0, top: 5, bottom: 5 }}>
+                <LineChart data={moodTrendData} margin={{ left: 0, right: 0, top: 5, bottom: 5 }}>
                   <XAxis 
                     dataKey="date" 
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 10, fill: '#64748b', textAnchor: 'start' }}
+                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'start' }}
                     interval={0}
                   />
                   <YAxis 
                     domain={[1, 5]}
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 10, fill: '#64748b', textAnchor: 'start' }}
+                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'start' }}
                     orientation="left"
-                    width={20}
                   />
                   <Line 
                     type="monotone" 
                     dataKey="mood" 
                     stroke="#8b5cf6"
-                    strokeWidth={2}
-                    dot={{ fill: '#8b5cf6', strokeWidth: 1, r: 3 }}
-                    activeDot={{ r: 4, fill: '#7c3aed' }}
+                    strokeWidth={3}
+                    dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 4 }}
+                    activeDot={{ r: 6, fill: '#7c3aed' }}
                   />
                 </LineChart>
               </ResponsiveContainer>
