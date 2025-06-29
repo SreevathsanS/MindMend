@@ -143,7 +143,7 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
 
-        {/* Burnout Trend Graph - Left Aligned Chart */}
+        {/* Burnout Trend Graph - Left Center Aligned Chart */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
           <div className="text-left">
             <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
@@ -152,28 +152,23 @@ const Dashboard: React.FC = () => {
             </h3>
           </div>
           
-          <div className="h-40 mb-4">
-            <div className="w-full text-left">
+          <div className="h-40 mb-4 flex justify-start">
+            <div className="w-full flex justify-start">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart 
-                  data={moodTrendData} 
-                  margin={{ left: 10, right: 10, top: 5, bottom: 5 }}
-                  style={{ textAlign: 'left' }}
-                >
+                <LineChart data={moodTrendData} margin={{ left: 0, right: 0, top: 5, bottom: 5 }}>
                   <XAxis 
                     dataKey="date" 
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'middle' }}
+                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'start' }}
                     interval={0}
                   />
                   <YAxis 
                     domain={[1, 5]}
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'end' }}
+                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'start' }}
                     orientation="left"
-                    width={20}
                   />
                   <Line 
                     type="monotone" 
