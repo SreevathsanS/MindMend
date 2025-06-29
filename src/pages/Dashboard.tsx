@@ -162,7 +162,7 @@ const Dashboard: React.FC = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="text-center flex-1">
             <div className="w-16 h-16 bg-gradient-to-br from-lavender-500 to-softblue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-gentle">
-              <BarChart3 className="w-8 h-8 text-white" />
+              <BarChart3 className="w-6 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-semibold text-calm-800 mb-2 leading-tight">Insights Dashboard</h1>
             <p className="text-calm-600 text-sm leading-relaxed">Your wellness journey at a glance</p>
