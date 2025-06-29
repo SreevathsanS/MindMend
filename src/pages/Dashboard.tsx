@@ -177,37 +177,44 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
 
-        {/* Mood Trend Bar Chart - Left Center Aligned Chart */}
+        {/* Mood Trend Bar Chart - Left Aligned with Soft Background */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
-          <div className="text-left">
-            <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
+          <div className="text-left mb-4">
+            <h3 className="font-semibold text-calm-800 flex items-center">
               <TrendingUp className="w-5 h-5 mr-2 text-lavender-600" />
               7-Day Mood Trend
             </h3>
           </div>
           
-          <div className="h-40 mb-4 flex justify-start">
-            <div className="w-full flex items-left justify-start">
+          {/* Left-aligned chart container with proper padding */}
+          <div className="bg-gradient-to-br from-lavender-50/30 to-offwhite-50/30 rounded-2xl p-4 mb-4">
+            <div className="h-40">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={moodTrendData} margin={{ left: 0, right: 0, top: 5, bottom: 5 }}>
+                <BarChart 
+                  data={moodTrendData} 
+                  margin={{ left: 10, right: 10, top: 10, bottom: 10 }}
+                  barCategoryGap="20%"
+                >
                   <XAxis 
                     dataKey="date" 
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'middle' }}
+                    tick={{ fontSize: 11, fill: '#64748b', textAnchor: 'middle' }}
                     interval={0}
+                    height={30}
                   />
                   <YAxis 
                     domain={[0, 5]}
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 12, fill: '#64748b', textAnchor: 'start' }}
+                    tick={{ fontSize: 11, fill: '#64748b' }}
                     orientation="left"
+                    width={25}
                   />
                   <Bar 
                     dataKey="mood" 
-                    radius={[4, 4, 0, 0]}
-                    maxBarSize={30}
+                    radius={[6, 6, 0, 0]}
+                    maxBarSize={28}
                   >
                     {moodTrendData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={getBarColor(entry.mood)} />
@@ -218,7 +225,8 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex justify-start items-center space-x-8">
+          {/* Stats aligned to left with better spacing */}
+          <div className="flex justify-start items-center space-x-8 pl-2">
             <div className="text-left">
               <div className="text-xl font-bold text-lavender-700">{averageMood.toFixed(1)}</div>
               <div className="text-xs text-calm-600 leading-relaxed">Average Mood</div>
@@ -230,26 +238,26 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Mood Distribution - Horizontal Bar Chart */}
+        {/* Mood Distribution - Horizontal Bar Chart with Left Alignment */}
         <div className="bg-gradient-to-br from-lavender-50 to-softblue-50 rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
-          <div className="text-left">
-            <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
+          <div className="text-left mb-4">
+            <h3 className="font-semibold text-calm-800 flex items-center">
               <Heart className="w-5 h-5 mr-2 text-softblue-600" />
               Mood Distribution
             </h3>
           </div>
           
-          <div className="space-y-3">
+          <div className="space-y-4">
             {moodDistribution.map((item, index) => (
-              <div key={index} className="flex items-center justify-between">
-                <div className="items-start align-items: flex-start space-x-3 flex-1">
+              <div key={index} className="flex items-center space-x-3">
+                <div className="flex items-center space-x-2 w-20 flex-shrink-0">
                   <span className="text-lg">{item.emoji}</span>
-                  <span className="text-sm font-medium text-calm-800 min-w-0 flex-shrink-0">
+                  <span className="text-sm font-medium text-calm-800">
                     {item.name}
                   </span>
                 </div>
                 <div className="flex items-center space-x-3 flex-1">
-                  <div className="flex-1 bg-white/50 rounded-full h-2 relative overflow-hidden">
+                  <div className="flex-1 bg-white/60 rounded-full h-3 relative overflow-hidden">
                     <div 
                       className="h-full rounded-full transition-all duration-1000 ease-out"
                       style={{ 
@@ -258,7 +266,7 @@ const Dashboard: React.FC = () => {
                       }}
                     />
                   </div>
-                  <span className="text-sm font-semibold text-calm-700 min-w-0 flex-shrink-0">
+                  <span className="text-sm font-semibold text-calm-700 w-6 text-right flex-shrink-0">
                     {item.value}
                   </span>
                 </div>
@@ -267,16 +275,16 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Key Insight */}
+        {/* Key Insight - Left Aligned */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
-          <div className="text-left">
-            <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
+          <div className="text-left mb-4">
+            <h3 className="font-semibold text-calm-800 flex items-center">
               <Brain className="w-5 h-5 mr-2 text-lavender-600" />
               Key Insight
             </h3>
           </div>
           
-          <div className="bg-lavender-50 rounded-2xl p-4 mb-4 text-left">
+          <div className="bg-lavender-50 rounded-2xl p-4 mb-4">
             <p className="text-calm-800 font-medium text-sm leading-relaxed text-left">{keyInsight}</p>
           </div>
 
@@ -290,10 +298,10 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Daily Wellness Tip */}
+        {/* Daily Wellness Tip - Left Aligned */}
         <div className="bg-gradient-to-r from-lavender-500 to-softblue-500 rounded-3xl p-6 text-white shadow-gentle">
-          <div className="text-left">
-            <h3 className="font-semibold mb-4 flex items-center justify-start">
+          <div className="text-left mb-4">
+            <h3 className="font-semibold flex items-center">
               <Lightbulb className="w-5 h-5 mr-2" />
               Daily Wellness Tip
             </h3>
