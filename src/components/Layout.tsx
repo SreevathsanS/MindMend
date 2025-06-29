@@ -19,17 +19,17 @@ const Layout: React.FC = () => {
             <Outlet />
           </main>
           
-          {/* Built with Bolt.new Footer */}
-          <div className="fixed bottom-20 left-0 right-0 z-40 px-6">
+          {/* Built with Bolt.new Footer - More prominent positioning */}
+          <div className="fixed bottom-20 left-0 right-0 z-40 px-6 pointer-events-none">
             <div className="max-w-sm mx-auto">
               <div className="text-center">
                 <a
                   href="https://bolt.new"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-3 py-1.5 bg-white/60 backdrop-blur-sm rounded-full text-xs text-calm-600 hover:text-calm-800 hover:bg-white/80 transition-all duration-300 shadow-soft border border-white/50"
+                  className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-md rounded-full text-xs font-medium text-calm-700 hover:text-calm-900 hover:bg-white/90 transition-all duration-300 shadow-soft border border-white/60 hover:shadow-gentle pointer-events-auto"
                 >
-                  <span className="mr-1">⚡</span>
+                  <span className="mr-1.5 text-sm">⚡</span>
                   Built with Bolt.new
                 </a>
               </div>
