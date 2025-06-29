@@ -161,7 +161,7 @@ const Chat: React.FC = () => {
         </div>
       </div>
 
-      {/* Input - Improved Alignment and Structure */}
+      {/* Input - Perfectly Aligned Send Button */}
       <div className="fixed bottom-24 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-offwhite-300/50 shadow-gentle">
         <div className="px-6 py-5">
           <div className="max-w-sm mx-auto">
@@ -176,11 +176,11 @@ const Chat: React.FC = () => {
                   rows={1}
                 />
               </div>
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 flex items-end">
                 <button
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim()}
-                  className="w-12 h-12 bg-gradient-to-r from-lavender-500 to-softblue-500 text-white rounded-full flex items-center justify-center shadow-gentle disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-soft hover:scale-105 active:scale-95 disabled:hover:scale-100"
+                  className="w-12 h-12 bg-gradient-to-r from-lavender-500 to-softblue-500 text-white rounded-full flex items-center justify-center shadow-gentle disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-soft hover:scale-105 active:scale-95 disabled:hover:scale-100 mb-0"
                 >
                   <Send className="w-5 h-5" />
                 </button>
