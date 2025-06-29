@@ -2,7 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Home, BookOpen, Heart, MessageCircle, BarChart3 } from 'lucide-react';
 
-const Navigation: React.FC = () => {
+interface NavigationProps {
+  isHidden?: boolean;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ isHidden = false }) => {
   const navItems = [
     { to: '/', icon: Home, label: 'Home' },
     { to: '/journal', icon: BookOpen, label: 'Journal' },
@@ -10,6 +14,10 @@ const Navigation: React.FC = () => {
     { to: '/chat', icon: MessageCircle, label: 'Chat' },
     { to: '/dashboard', icon: BarChart3, label: 'Dashboard' },
   ];
+
+  if (isHidden) {
+    return null;
+  }
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 px-4 pb-4">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BarChart3, TrendingUp, Heart, Brain, Lightbulb, User, Settings, Bell, Shield, HelpCircle, LogOut, Edit3, Camera, ChevronRight, X } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { mockMoodEntries, mockJournalEntries, wellnessTips, getBurnoutLabel } from '../data/mockData';
@@ -18,6 +18,26 @@ const Dashboard: React.FC = () => {
     journalPrompts: false,
     weeklyInsights: true
   });
+
+  // Hide/show navigation based on profile modal state
+  useEffect(() => {
+    const navElement = document.querySelector('nav.fixed.bottom-0');
+    if (navElement) {
+      if (showProfile) {
+        navElement.style.display = 'none';
+      } else {
+        navElement.style.display = 'block';
+      }
+    }
+
+    // Cleanup function to ensure nav is visible when component unmounts
+    return () => {
+      const navElement = document.querySelector('nav.fixed.bottom-0');
+      if (navElement) {
+        navElement.style.display = 'block';
+      }
+    };
+  }, [showProfile]);
 
   // Calculate insights
   const averageMood = mockMoodEntries.length > 0 
