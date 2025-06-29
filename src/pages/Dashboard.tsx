@@ -177,7 +177,7 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
 
-        {/* Mood Trend Bar Chart - Left Aligned with Soft Background */}
+        {/* Mood Trend Bar Chart - Left Aligned with Y-axis Numbers */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
           <div className="text-left mb-4">
             <h3 className="font-semibold text-calm-800 flex items-center">
@@ -186,13 +186,13 @@ const Dashboard: React.FC = () => {
             </h3>
           </div>
           
-          {/* Left-aligned chart container with proper padding */}
+          {/* Left-aligned chart container with proper padding and Y-axis numbers */}
           <div className="bg-gradient-to-br from-lavender-50/30 to-offwhite-50/30 rounded-2xl p-4 mb-4">
             <div className="h-40">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart 
                   data={moodTrendData} 
-                  margin={{ left: 10, right: 10, top: 10, bottom: 10 }}
+                  margin={{ left: 15, right: 10, top: 10, bottom: 10 }}
                   barCategoryGap="20%"
                 >
                   <XAxis 
@@ -205,11 +205,12 @@ const Dashboard: React.FC = () => {
                   />
                   <YAxis 
                     domain={[0, 5]}
+                    ticks={[1, 2, 3, 4, 5]}
                     axisLine={false}
                     tickLine={false}
                     tick={{ fontSize: 11, fill: '#64748b' }}
                     orientation="left"
-                    width={25}
+                    width={30}
                   />
                   <Bar 
                     dataKey="mood" 
