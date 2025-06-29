@@ -110,7 +110,7 @@ const Dashboard: React.FC = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-lavender-500 to-softblue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-gentle">
               <BarChart3 className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-2xl font-semibold text-calm-800 mb-2">Insights Dashboard</h1>
+            <h1 className="text-2xl font-semibold text-calm-800 mb-2 leading-tight">Insights Dashboard</h1>
             <p className="text-calm-600 text-sm leading-relaxed">Your wellness journey at a glance</p>
           </div>
           
@@ -123,12 +123,14 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
 
-        {/* Burnout Trend Graph */}
+        {/* Burnout Trend Graph - Left Aligned Elements */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
-          <h3 className="font-semibold text-calm-800 mb-4 flex items-center">
-            <TrendingUp className="w-5 h-5 mr-2 text-lavender-600" />
-            7-Day Mood Trend
-          </h3>
+          <div className="text-left">
+            <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
+              <TrendingUp className="w-5 h-5 mr-2 text-lavender-600" />
+              7-Day Mood Trend
+            </h3>
+          </div>
           
           <div className="h-40 mb-4">
             <ResponsiveContainer width="100%" height="100%">
@@ -157,12 +159,12 @@ const Dashboard: React.FC = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="flex justify-between items-center text-center">
-            <div>
+          <div className="flex justify-start items-center space-x-8">
+            <div className="text-left">
               <div className="text-xl font-bold text-lavender-700">{averageMood.toFixed(1)}</div>
               <div className="text-xs text-calm-600 leading-relaxed">Average Mood</div>
             </div>
-            <div>
+            <div className="text-left">
               <div className="text-xl font-bold text-softblue-700">{averageBurnout.toFixed(1)}</div>
               <div className="text-xs text-calm-600 leading-relaxed">Burnout Level</div>
             </div>
@@ -171,10 +173,12 @@ const Dashboard: React.FC = () => {
 
         {/* Mood Distribution */}
         <div className="bg-gradient-to-br from-lavender-50 to-softblue-50 rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
-          <h3 className="font-semibold text-calm-800 mb-4 flex items-center">
-            <Heart className="w-5 h-5 mr-2 text-softblue-600" />
-            Mood Distribution
-          </h3>
+          <div className="text-left">
+            <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
+              <Heart className="w-5 h-5 mr-2 text-softblue-600" />
+              Mood Distribution
+            </h3>
+          </div>
           
           <div className="h-32 mb-4">
             <ResponsiveContainer width="100%" height="100%">
@@ -197,12 +201,12 @@ const Dashboard: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-2">
             {moodDistribution.map((item, index) => (
-              <div key={index} className="flex items-center text-xs">
+              <div key={index} className="flex items-center justify-start text-xs">
                 <div 
-                  className="w-3 h-3 rounded-full mr-2" 
+                  className="w-3 h-3 rounded-full mr-2 flex-shrink-0" 
                   style={{ backgroundColor: item.color }}
                 ></div>
-                <span className="text-calm-700">{item.name} ({item.value})</span>
+                <span className="text-calm-700 text-left">{item.name} ({item.value})</span>
               </div>
             ))}
           </div>
@@ -210,16 +214,18 @@ const Dashboard: React.FC = () => {
 
         {/* Key Insight */}
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-soft border border-white/50">
-          <h3 className="font-semibold text-calm-800 mb-4 flex items-center">
-            <Brain className="w-5 h-5 mr-2 text-lavender-600" />
-            Key Insight
-          </h3>
+          <div className="text-left">
+            <h3 className="font-semibold text-calm-800 mb-4 flex items-center justify-start">
+              <Brain className="w-5 h-5 mr-2 text-lavender-600" />
+              Key Insight
+            </h3>
+          </div>
           
-          <div className="bg-lavender-50 rounded-2xl p-4 mb-4">
-            <p className="text-calm-800 font-medium text-sm leading-relaxed">{keyInsight}</p>
+          <div className="bg-lavender-50 rounded-2xl p-4 mb-4 text-left">
+            <p className="text-calm-800 font-medium text-sm leading-relaxed text-left">{keyInsight}</p>
           </div>
 
-          <div className="text-xs text-calm-600 leading-relaxed">
+          <div className="text-xs text-calm-600 leading-relaxed text-left">
             {averageMood >= 4 ? 
               "Your mood has been consistently positive! Keep up the great work with your wellness practices." :
               averageMood >= 3 ?
@@ -231,16 +237,18 @@ const Dashboard: React.FC = () => {
 
         {/* Daily Wellness Tip */}
         <div className="bg-gradient-to-r from-lavender-500 to-softblue-500 rounded-3xl p-6 text-white shadow-gentle">
-          <h3 className="font-semibold mb-4 flex items-center">
-            <Lightbulb className="w-5 h-5 mr-2" />
-            Daily Wellness Tip
-          </h3>
+          <div className="text-left">
+            <h3 className="font-semibold mb-4 flex items-center justify-start">
+              <Lightbulb className="w-5 h-5 mr-2" />
+              Daily Wellness Tip
+            </h3>
+          </div>
           
-          <p className="text-lavender-50 leading-relaxed mb-4 text-sm">
+          <p className="text-lavender-50 leading-relaxed mb-4 text-sm text-left">
             {todayTip}
           </p>
           
-          <div className="text-xs text-lavender-100 leading-relaxed">
+          <div className="text-xs text-lavender-100 leading-relaxed text-left">
             💡 Small steps lead to big changes in your mental wellness journey.
           </div>
         </div>
